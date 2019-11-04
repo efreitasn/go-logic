@@ -3,6 +3,8 @@ package nand
 import (
 	"reflect"
 	"testing"
+
+	"github.com/efreitasn/go-logic/internal/utils"
 )
 
 func TestAnd(t *testing.T) {
@@ -18,7 +20,7 @@ func TestAnd(t *testing.T) {
 	}
 
 	for _, e := range truthTable {
-		t.Run(inToName(e.a, e.b), func(t *testing.T) {
+		t.Run(utils.BoolsToStr(e.a, e.b), func(t *testing.T) {
 			r := And(e.a, e.b)
 
 			if r != e.out {

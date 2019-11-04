@@ -1,6 +1,10 @@
 package nand
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/efreitasn/go-logic/internal/utils"
+)
 
 func TestDMux(t *testing.T) {
 	truthTable := []struct {
@@ -16,7 +20,7 @@ func TestDMux(t *testing.T) {
 	}
 
 	for _, e := range truthTable {
-		t.Run(inToName(e.in, e.s), func(t *testing.T) {
+		t.Run(utils.BoolsToStr(e.in, e.s), func(t *testing.T) {
 			a, b := DMux(e.in, e.s)
 
 			if (a != e.a) || (b != e.b) {

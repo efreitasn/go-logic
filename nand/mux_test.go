@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"reflect"
 	"testing"
+
+	"github.com/efreitasn/go-logic/internal/utils"
 )
 
 func TestMux(t *testing.T) {
@@ -24,7 +26,7 @@ func TestMux(t *testing.T) {
 	}
 
 	for _, e := range truthTable {
-		t.Run(inToName(e.a, e.b, e.s), func(t *testing.T) {
+		t.Run(utils.BoolsToStr(e.a, e.b, e.s), func(t *testing.T) {
 			r := Mux(e.a, e.b, e.s)
 
 			if r != e.out {
